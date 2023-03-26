@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>form Validation</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+        integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <form action="" id="form">
+        <h1>Password Generator</h1>
+        <div id="first">
+            <div id="passwordshow"></div>
+            <div id="copypassword"><i class="fa-regular fa-copy"></i></div>
+        </div>
+        <label for="">Password Length</label><input type="number" class="num"><br>
+        <label for="">Add UpperCase Letter</label><input type="checkbox" id="UpperCase"><br>
+        <label for="">Add LowerCase Letter</label><input type="checkbox" id="LowerCase"><br>
+        <label for="">Include Number</label><input type="checkbox" id="number"><br>
+        <label for="">Include Symbol</label><input type="checkbox" id="symbol"><br>
+        <button>Generate Password</button>
+    </form>
+
+    <script>
+        // const uppercase = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        // const lowercase = 'abcdefghijklmnopqrstuvwxyz';
+        // const number = '0123456789';
+        // const symbol = '!@#$%^&*()+=|{}[]~`?/.><,:';
+
+
+        // let Passwordlength = document.querySelector('.num');
+        // let isuppercase = document.querySelector('#UpperCase');
+        // let islowercase = document.querySelector('#LowerCase');
+        // let isnumber = document.querySelector('#number');
+        // let issymbol = document.querySelector('#symbol');
+        // let form = document.querySelector('form');
+
+        // form.onsubmit = (e) => {
+        //     e.preventDefault()
+        //     let finaloutput='';
+        //     if (Passwordlength.value.length === 0) {
+        //         alert("Please Enter Passwordlength");
+        //     }
+        //     else {
+        //         if (!isuppercase.checked && !islowercase.checked && !isnumber.checked && !issymbol.checked) {
+        //             alert('Please Select Atleast One Options');
+        //         }
+        //         else {
+        //             let whatispassword = '';
+
+        //             if (isuppercase.checked) {
+        //                 whatispassword += uppercase;
+        //             }
+        //             if (islowercase.checked) {
+        //                 whatispassword += lowercase;
+        //             }
+        //             if (isnumber.checked) {
+        //                 whatispassword += number;
+        //             }
+        //             if (issymbol.checked) {
+        //                 whatispassword += symbol;
+        //             }
+        //             // console.log(whatispassword);
+        //             for(let i=0; i<Passwordlength.value; i++){
+        //                 finaloutput+=whatispassword[Math.floor(Math.random()*whatispassword.length)]
+        //             }
+        //             console.log(finaloutput)
+        //         }
+        //     }
+        //     document.querySelector('#passwordshow').innerHTML=finaloutput;
+        // }
+        
+
+        
+
+        let passwordlength = document.querySelector(".num");
+        let isuppercase = document.querySelector("#UpperCase");
+        let islowercase = document.querySelector("#LowerCase");
+        let isnumber = document.querySelector("#number");
+        let issymbol = document.querySelector("#symbol");
+        let btn = document.querySelector("button");
+
+        const uppercase = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        const lowercase = 'abcdefghijklmnopqrstuvwxyz';
+        const number = '0123456789';
+        const symbol = '!@#$%^&*()+=|{}[]~`?/.><,:';
+
+        btn.onclick = (e) => {
+            e.preventDefault()
+            let finalpassword="";
+            if (passwordlength.value.length === 0) {
+                alert("Please Enter Password Length");
+            }
+            else{
+                if(!isuppercase.checked && !islowercase.checked && !isnumber.checked && !issymbol.checked){
+                    alert("Please Select Atleast One Options");
+                }
+                else{
+                    let thatispassword='';
+                    if(isuppercase.checked){
+                       thatispassword+=uppercase;
+                    }
+                    if(islowercase.checked){
+                        thatispassword+=lowercase;
+                    }
+                    if(isnumber.checked){
+                        thatispassword+=number;
+                    }
+                    if(issymbol.checked){
+                        thatispassword+=symbol;
+                    }
+                    // console.log(thatispassword);
+                    for(let i=0; i<passwordlength.value; i++){
+                        finalpassword+=thatispassword[Math.floor(Math.random()*thatispassword.length)]
+                    }
+                    console.log(finalpassword);
+                }
+            }
+            document.querySelector("#passwordshow").innerHTML=finalpassword;
+        }
+
+
+
+    </script>
+
+
+</body>
+
+</html>
